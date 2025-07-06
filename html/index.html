@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
     <script src="../javascript/index.js"></script>
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
     <h1>Juguemos</h1>
     <h2>Elige una opcion</h2>
-    <button type="button">🪨</button>
-    <button type="button">🧻</button>
-    <button type="button">✂️</button>
+    <form name="formEleccionUsuario" action="">
+      <input type="radio" name="eleccionUsuario" id="piedra" value="piedra" />
+      <label for="piedra">Piedra</label>
+
+      <input type="radio" name="eleccionUsuario" id="papel" value="papel" />
+      <label for="papel">papel</label>
+
+      <input type="radio" name="eleccionUsuario" id="tijera" value="tijera" />
+      <label for="tijera">tijera</label>
+    </form>
+
+
     <button onclick="iniciarJuego()">Iniciar</button>
   </body>
 </html>

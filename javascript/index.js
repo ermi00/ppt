@@ -1,6 +1,13 @@
+function eleccionUsuario() {
+  let radioSeleccionado = document.formEleccionUsuario.eleccionUsuario.value;
+  return radioSeleccionado;
+}
+
 function iniciarJuego() {
-  usuario = prompt("Elige piedra, papel o tijera");
-  maquina = eleccionMaquina();
+  let usuario = eleccionUsuario();
+  let maquina = eleccionMaquina();
+  console.log(`Usuario escogio --> ${usuario}`)
+  console.log(`Maquina escogio --> ${maquina}`)
   quienEsElGanador(usuario, maquina);
 }
 
