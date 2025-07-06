@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
-    <script src="../javascript/index.js"></script>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
@@ -20,8 +19,12 @@
       <input type="radio" name="eleccionUsuario" id="tijera" value="tijera" />
       <label for="tijera">tijera</label>
     </form>
+    <br>
 
+    <button type="button" onclick="iniciarJuego()">Iniciar</button>
 
-    <button onclick="iniciarJuego()">Iniciar</button>
+    <div id="divResultados">
+    </div>
   </body>
+  <script src="../javascript/index.js"></script>
 </html>

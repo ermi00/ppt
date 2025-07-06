@@ -1,14 +1,14 @@
-function eleccionUsuario() {
-  let radioSeleccionado = document.formEleccionUsuario.eleccionUsuario.value;
-  return radioSeleccionado;
-}
-
 function iniciarJuego() {
   let usuario = eleccionUsuario();
   let maquina = eleccionMaquina();
-  console.log(`Usuario escogio --> ${usuario}`)
-  console.log(`Maquina escogio --> ${maquina}`)
   quienEsElGanador(usuario, maquina);
+  mostrarResultados(usuario, maquina);
+}
+
+function eleccionUsuario() {
+  let radioSeleccionado = document.formEleccionUsuario.eleccionUsuario.value;
+  if (radioSeleccionado.lenght == 0) radioSeleccionado = "ninguno";
+  return radioSeleccionado;
 }
 
 function eleccionMaquina() {
@@ -42,4 +42,12 @@ function quienEsElGanador(usuario, maquina) {
   } else if (usuario == "tijera" && maquina == "papel") {
     console.log("Ganaste");
   }
+}
+
+function mostrarResultados(usuario, maquina) {
+  document.getElementById("divResultados").innerHTML = `
+  <h1>Resultados</h1>
+  <p>Usuario escogio ${usuario}</p>
+  <p>Maquina escogio ${maquina}</p>
+  `;
 }
