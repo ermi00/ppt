@@ -1,8 +1,8 @@
 function iniciarJuego() {
   let usuario = eleccionUsuario();
   let maquina = eleccionMaquina();
-  quienEsElGanador(usuario, maquina);
-  mostrarResultados(usuario, maquina);
+  let resultado = quienEsElGanador()
+  mostrarResultados(usuario, maquina, resultado);
 }
 
 function eleccionUsuario() {
@@ -28,26 +28,27 @@ function eleccionMaquina() {
 
 function quienEsElGanador(usuario, maquina) {
   if (usuario == maquina) {
-    console.log("Empate");
+    return "Empate";
   } else if (usuario == "piedra" && maquina == "papel") {
-    console.log("Perdiste");
+    return "Perdiste";
   } else if (usuario == "piedra" && maquina == "tijera") {
-    console.log("Ganaste");
+    return "Ganaste";
   } else if (usuario == "papel" && maquina == "tijera") {
-    console.log("Perdiste");
+    return "Perdiste";
   } else if (usuario == "papel" && maquina == "piedra") {
-    console.log("Ganaste");
+    return "Ganaste";
   } else if (usuario == "tijera" && maquina == "piedra") {
-    console.log("Perdiste");
+    return "Perdiste";
   } else if (usuario == "tijera" && maquina == "papel") {
-    console.log("Ganaste");
+    return "Ganaste";
   }
 }
 
-function mostrarResultados(usuario, maquina) {
+function mostrarResultados(usuario, maquina, resultado) {
   document.getElementById("divResultados").innerHTML = `
   <h1>Resultados</h1>
   <p>Usuario escogio ${usuario}</p>
   <p>Maquina escogio ${maquina}</p>
+  <p>RESULTADO ES ${resultado}</p>
   `;
 }
