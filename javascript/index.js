@@ -2,9 +2,11 @@ let usuarioEleccion = null;
 let imgUsuarioEleccion = document.getElementById("imgUsuarioEleccion");
 let imgMaquinaEleccion = document.getElementById("imgMaquinaEleccion");
 let divElecciones = document.getElementById("divElecciones")
+let sonidoBotones = new Audio("../assets/clickButton.mp3");
 divElecciones.style.display = 'none';
 
 function iniciarJuego() {
+  sonidoBotones.play();
   let usuario = eleccionUsuario();
   let maquina = eleccionMaquina();
   let resultado = quienEsElGanador(usuario, maquina);
@@ -53,10 +55,7 @@ function quienEsElGanador(usuario, maquina) {
 
 function mostrarResultados(usuario, maquina, resultado) {
   document.getElementById("divResultados").innerHTML = `
-  <h1>Resultados</h1>
-  <p>Usuario escogio ${usuario}</p>
-  <p>Maquina escogio ${maquina}</p>
-  <p>RESULTADO ES ${resultado}</p>
+  <h1>${resultado}</h1>
   `;
 }
 
@@ -74,16 +73,19 @@ function mostrarResultadosConsola(usuario, maquina, resultado) {
 function botonPiedra() {
   console.log("piedra fue clickeada");
   usuarioEleccion = "piedra";
+  sonidoBotones.play();
 }
 
 function botonPapel() {
   console.log("papel fue clickeada");
   usuarioEleccion = "papel";
+  sonidoBotones.play();
 }
 
 function botonTijera() {
   console.log("tijera fue clickeada");
   usuarioEleccion = "tijera";
+  sonidoBotones.play();
 }
 
 function cambiarURL(usuario, maquina) {
