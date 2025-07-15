@@ -1,9 +1,14 @@
 let usuarioEleccion = null;
 let imgUsuarioEleccion = document.getElementById("imgUsuarioEleccion");
 let imgMaquinaEleccion = document.getElementById("imgMaquinaEleccion");
-let divElecciones = document.getElementById("divElecciones")
+let divElecciones = document.getElementById("divElecciones");
+let botonReiniciar = document.getElementById("botonReiniciar");
 let sonidoBotones = new Audio("../assets/clickButton.mp3");
-divElecciones.style.display = 'none';
+let winnerSong = new Audio("../assets/winner.mp3");
+let loserSong = new Audio("../assets/loser.mp3");
+let empateSong = new Audio("../assets/empate.mp3");
+divElecciones.style.display = "none";
+botonReiniciar.style.display = "none";
 
 function iniciarJuego() {
   sonidoBotones.play();
@@ -13,7 +18,28 @@ function iniciarJuego() {
   mostrarResultados(usuario, maquina, resultado);
   mostrarResultadosConsola(usuario, maquina, resultado);
   cambiarURL(usuario, maquina);
-  divElecciones.style.display = 'flex ';
+  botonReiniciar.style.display = "block";
+  divElecciones.style.display = "flex ";
+
+  if (resultado == "Ganaste") {
+    winnerSong.play();
+    document.getElementById("divResultados").innerHTML = `
+  <h1>${resultado}</h1>
+  <img class="imgGif" src="../assets/calacaBailando.gif" alt="calacaBailando">
+  `;
+  } else if (resultado == "Perdiste") {
+    loserSong.play();
+    document.getElementById("divResultados").innerHTML = `
+  <h1>${resultado}</h1>
+  <img class="imgGif" src="../assets/marioSad.gif" alt="marioSad">
+  `;
+  } else if (resultado == "Empate") {
+    empateSong.play();
+        document.getElementById("divResultados").innerHTML = `
+  <h1>${resultado}</h1>
+  <img class="imgGif" src="../assets/L.gif" alt="marioSad">
+  `;
+  }
 }
 
 function eleccionUsuario() {
@@ -90,8 +116,8 @@ function botonTijera() {
 
 function cambiarURL(usuario, maquina) {
   if (usuario == maquina) {
-    imgUsuarioEleccion.src = `../assets/${usuario}Icono.png`
-    imgMaquinaEleccion.src = `../assets/${maquina}Icono.png`
+    imgUsuarioEleccion.src = `../assets/${usuario}Icono.png`;
+    imgMaquinaEleccion.src = `../assets/${maquina}Icono.png`;
   } else if (usuario == "piedra" && maquina == "papel") {
     imgUsuarioEleccion.src = "../assets/piedraIcono.png";
     imgMaquinaEleccion.src = "../assets/papelIcono.png";
@@ -112,3 +138,8 @@ function cambiarURL(usuario, maquina) {
     imgMaquinaEleccion.src = "../assets/papelIcono.png";
   }
 }
+
+function reiniciarJuego() {
+  window.location.reload();
+}
+

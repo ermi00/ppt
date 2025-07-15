@@ -37,3 +37,12 @@ button {
 h2 {
     margin: 45px;
 }
+
+#botonReiniciar{
+    margin-top: 5px;
+}
+
+.imgGif{
+    margin-top: 15px;
+    width: 320px;
+}
