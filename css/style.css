@@ -1,3 +1,33 @@
-*{
-    font-family: Helvetica, sans-serif;
+* {
+    font-family: Roboto Mono, Arial;
+}
+
+body {
+    background-color: #2e2e2e;
+    color: #f7f6f9;
+    padding: 20px;
+}
+
+.botonesJuego {
+    width: 100px;
+    height: 100px;
+    color: white;
+}
+
+.imgIconos {
+    width: 70px;
+}
+
+button {
+    width: 320px;
+    height: 40px;
+}
+
+#divElecciones {
+    display: flex;
+    align-items: center;
+}
+
+h2{
+    margin: 45px;
 }

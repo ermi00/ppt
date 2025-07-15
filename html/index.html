@@ -1,30 +1,58 @@
 <!DOCTYPE html>
 <html lang="en-MX">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inicio</title>
-    <link rel="stylesheet" href="../css/style.css" />
-  </head>
-  <body>
-    <h1>Juguemos</h1>
-    <h2>Elige una opcion</h2>
-    <form name="formEleccionUsuario" action="">
-      <input type="radio" name="eleccionUsuario" id="piedra" value="piedra" />
-      <label for="piedra">Piedra</label>
 
-      <input type="radio" name="eleccionUsuario" id="papel" value="papel" />
-      <label for="papel">papel</label>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piedra, Papel, Tijeras</title>
+  <link rel="stylesheet" href="../css/style.css" />
 
-      <input type="radio" name="eleccionUsuario" id="tijera" value="tijera" />
-      <label for="tijera">tijera</label>
-    </form>
-    <br>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet" />
+</head>
 
-    <button type="button" onclick="iniciarJuego()">Iniciar</button>
+<body>
+  <h1>Piedra, Papel, Tijeras!</h1>
+  <p>Seleciona una de las opciones para jugar</p>
 
-    <div id="divResultados">
-    </div>
-  </body>
-  <script src="../javascript/index.js"></script>
+  <div class="divBotones">
+    <button class="botonesJuego" onclick="botonPiedra()">
+      <img class="imgIconos" src="../assets/piedraIcono.png" alt="" />
+    </button>
+
+    <button class="botonesJuego" onclick="botonPapel()">
+      <img class="imgIconos" src="../assets/papelIcono.png" alt="" />
+    </button>
+
+    <button class="botonesJuego" onclick="botonTijera()">
+      <img class="imgIconos" src="../assets/tijeraIcono.png" alt="" />
+    </button>
+  </div>
+  <br>
+
+  <div id="divElecciones">
+
+    <button class="botonesJuego" disabled>
+      TU
+      <img id="imgUsuarioEleccion" class="imgIconos" src="" alt="" />
+    </button>
+
+    <h2>VS</h2>
+
+    <button class="botonesJuego" disabled>
+      PC
+      <img id="imgMaquinaEleccion" class="imgIconos" src="" alt="" />
+    </button>
+
+  </div>
+
+  <br>
+  <button type="button" onclick="iniciarJuego()">Iniciar</button>
+
+  <div id="divResultados"></div>
+</body>
+<script src="../javascript/index.js"></script>
+
 </html>

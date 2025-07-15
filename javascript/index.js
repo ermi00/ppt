@@ -1,14 +1,21 @@
+let usuarioEleccion = null;
+let imgUsuarioEleccion = document.getElementById("imgUsuarioEleccion");
+let imgMaquinaEleccion = document.getElementById("imgMaquinaEleccion");
+let divElecciones = document.getElementById("divElecciones")
+divElecciones.style.display = 'none';
+
 function iniciarJuego() {
   let usuario = eleccionUsuario();
   let maquina = eleccionMaquina();
-  let resultado = quienEsElGanador()
+  let resultado = quienEsElGanador(usuario, maquina);
   mostrarResultados(usuario, maquina, resultado);
+  mostrarResultadosConsola(usuario, maquina, resultado);
+  cambiarURL(usuario, maquina);
+  divElecciones.style.display = 'flex ';
 }
 
 function eleccionUsuario() {
-  let radioSeleccionado = document.formEleccionUsuario.eleccionUsuario.value;
-  if (radioSeleccionado.lenght == 0) radioSeleccionado = "ninguno";
-  return radioSeleccionado;
+  return usuarioEleccion;
 }
 
 function eleccionMaquina() {
@@ -51,4 +58,55 @@ function mostrarResultados(usuario, maquina, resultado) {
   <p>Maquina escogio ${maquina}</p>
   <p>RESULTADO ES ${resultado}</p>
   `;
+}
+
+function mostrarResultadosConsola(usuario, maquina, resultado) {
+  console.log(
+    `
+    Usuario -->  ${usuario}
+    Maquina --> ${maquina}
+    Resultado --> ${resultado}
+
+    `
+  );
+}
+
+function botonPiedra() {
+  console.log("piedra fue clickeada");
+  usuarioEleccion = "piedra";
+}
+
+function botonPapel() {
+  console.log("papel fue clickeada");
+  usuarioEleccion = "papel";
+}
+
+function botonTijera() {
+  console.log("tijera fue clickeada");
+  usuarioEleccion = "tijera";
+}
+
+function cambiarURL(usuario, maquina) {
+  if (usuario == maquina) {
+    imgUsuarioEleccion.src = `../assets/${usuario}Icono.png`
+    imgMaquinaEleccion.src = `../assets/${maquina}Icono.png`
+  } else if (usuario == "piedra" && maquina == "papel") {
+    imgUsuarioEleccion.src = "../assets/piedraIcono.png";
+    imgMaquinaEleccion.src = "../assets/papelIcono.png";
+  } else if (usuario == "piedra" && maquina == "tijera") {
+    imgUsuarioEleccion.src = "../assets/piedraIcono.png";
+    imgMaquinaEleccion.src = "../assets/tijeraIcono.png";
+  } else if (usuario == "papel" && maquina == "tijera") {
+    imgUsuarioEleccion.src = "../assets/papelIcono.png";
+    imgMaquinaEleccion.src = "../assets/tijeraIcono.png";
+  } else if (usuario == "papel" && maquina == "piedra") {
+    imgUsuarioEleccion.src = "../assets/papelIcono.png";
+    imgMaquinaEleccion.src = "../assets/piedraIcono.png";
+  } else if (usuario == "tijera" && maquina == "piedra") {
+    imgUsuarioEleccion.src = "../assets/tijeraIcono.png";
+    imgMaquinaEleccion.src = "../assets/piedraIcono.png";
+  } else if (usuario == "tijera" && maquina == "papel") {
+    imgUsuarioEleccion.src = "../assets/tijeraIcono.png";
+    imgMaquinaEleccion.src = "../assets/papelIcono.png";
+  }
 }
