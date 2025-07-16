@@ -16,7 +16,6 @@ function iniciarJuego() {
   if (!usuarioEleccion) {
     errorSound.play();
     alert("¡Selecciona una opción primero!");
-    console.log("Debes elegir piedra, papel o tijera antes de iniciar.");
     return;
   }
   let usuario = eleccionUsuario();
