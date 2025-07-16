@@ -4,11 +4,11 @@ let imgMaquinaEleccion = document.getElementById("imgMaquinaEleccion");
 let divElecciones = document.getElementById("divElecciones");
 let botonIniciar = document.getElementById("botonIniciar");
 let botonReiniciar = document.getElementById("botonReiniciar");
-let sonidoBotones = new Audio("../assets/clickButton.mp3");
-let winnerSong = new Audio("../assets/winner.mp3");
-let loserSong = new Audio("../assets/loser.mp3");
-let empateSong = new Audio("../assets/empate.mp3");
-let errorSound = new Audio("../assets/errorSound.mp3");
+let sonidoBotones = new Audio("assets/clickButton.mp3");
+let winnerSong = new Audio("assets/winner.mp3");
+let loserSong = new Audio("assets/loser.mp3");
+let empateSong = new Audio("assets/empate.mp3");
+let errorSound = new Audio("assets/errorSound.mp3");
 divElecciones.style.display = "none";
 botonReiniciar.style.display = "none";
 
@@ -31,19 +31,19 @@ function iniciarJuego() {
     winnerSong.play();
     document.getElementById("divResultados").innerHTML = `
   <h1 style="color: green;">${resultado.toUpperCase()}</h1>
-  <img class="imgGif" src="../assets/calacaBailando.gif" alt="calacaBailando">
+  <img class="imgGif" src="assets/calacaBailando.gif" alt="calacaBailando">
   `;
   } else if (resultado == "Perdiste") {
     loserSong.play();
     document.getElementById("divResultados").innerHTML = `
   <h1 style="color: red;">${resultado.toUpperCase()}</h1>
-  <img class="imgGif" src="../assets/marioSad.gif" alt="marioSad">
+  <img class="imgGif" src="assets/marioSad.gif" alt="marioSad">
   `;
   } else if (resultado == "Empate") {
     empateSong.play();
     document.getElementById("divResultados").innerHTML = `
   <h1 style="color: yellow;">${resultado.toUpperCase()}</h1>
-  <img class="imgGif" src="../assets/L.gif" alt="marioSad">
+  <img class="imgGif" src="assets/L.gif" alt="marioSad">
   `;
   }
 
@@ -124,26 +124,26 @@ function botonTijera() {
 
 function cambiarURL(usuario, maquina) {
   if (usuario == maquina) {
-    imgUsuarioEleccion.src = `../assets/${usuario}Icono.png`;
-    imgMaquinaEleccion.src = `../assets/${maquina}Icono.png`;
+    imgUsuarioEleccion.src = `assets/${usuario}Icono.png`;
+    imgMaquinaEleccion.src = `assets/${maquina}Icono.png`;
   } else if (usuario == "piedra" && maquina == "papel") {
-    imgUsuarioEleccion.src = "../assets/piedraIcono.png";
-    imgMaquinaEleccion.src = "../assets/papelIcono.png";
+    imgUsuarioEleccion.src = "assets/piedraIcono.png";
+    imgMaquinaEleccion.src = "assets/papelIcono.png";
   } else if (usuario == "piedra" && maquina == "tijera") {
-    imgUsuarioEleccion.src = "../assets/piedraIcono.png";
-    imgMaquinaEleccion.src = "../assets/tijeraIcono.png";
+    imgUsuarioEleccion.src = "assets/piedraIcono.png";
+    imgMaquinaEleccion.src = "assets/tijeraIcono.png";
   } else if (usuario == "papel" && maquina == "tijera") {
-    imgUsuarioEleccion.src = "../assets/papelIcono.png";
-    imgMaquinaEleccion.src = "../assets/tijeraIcono.png";
+    imgUsuarioEleccion.src = "assets/papelIcono.png";
+    imgMaquinaEleccion.src = "assets/tijeraIcono.png";
   } else if (usuario == "papel" && maquina == "piedra") {
-    imgUsuarioEleccion.src = "../assets/papelIcono.png";
-    imgMaquinaEleccion.src = "../assets/piedraIcono.png";
+    imgUsuarioEleccion.src = "assets/papelIcono.png";
+    imgMaquinaEleccion.src = "assets/piedraIcono.png";
   } else if (usuario == "tijera" && maquina == "piedra") {
-    imgUsuarioEleccion.src = "../assets/tijeraIcono.png";
-    imgMaquinaEleccion.src = "../assets/piedraIcono.png";
+    imgUsuarioEleccion.src = "assets/tijeraIcono.png";
+    imgMaquinaEleccion.src = "assets/piedraIcono.png";
   } else if (usuario == "tijera" && maquina == "papel") {
-    imgUsuarioEleccion.src = "../assets/tijeraIcono.png";
-    imgMaquinaEleccion.src = "../assets/papelIcono.png";
+    imgUsuarioEleccion.src = "assets/tijeraIcono.png";
+    imgMaquinaEleccion.src = "assets/papelIcono.png";
   }
 }
 
