@@ -2,16 +2,23 @@ let usuarioEleccion = null;
 let imgUsuarioEleccion = document.getElementById("imgUsuarioEleccion");
 let imgMaquinaEleccion = document.getElementById("imgMaquinaEleccion");
 let divElecciones = document.getElementById("divElecciones");
+let botonIniciar = document.getElementById("botonIniciar");
 let botonReiniciar = document.getElementById("botonReiniciar");
 let sonidoBotones = new Audio("../assets/clickButton.mp3");
 let winnerSong = new Audio("../assets/winner.mp3");
 let loserSong = new Audio("../assets/loser.mp3");
 let empateSong = new Audio("../assets/empate.mp3");
+let errorSound = new Audio("../assets/errorSound.mp3");
 divElecciones.style.display = "none";
 botonReiniciar.style.display = "none";
 
 function iniciarJuego() {
-  sonidoBotones.play();
+  if (!usuarioEleccion) {
+    errorSound.play();
+    alert("¡Selecciona una opción primero!");
+    console.log("Debes elegir piedra, papel o tijera antes de iniciar.");
+    return;
+  }
   let usuario = eleccionUsuario();
   let maquina = eleccionMaquina();
   let resultado = quienEsElGanador(usuario, maquina);
@@ -24,22 +31,24 @@ function iniciarJuego() {
   if (resultado == "Ganaste") {
     winnerSong.play();
     document.getElementById("divResultados").innerHTML = `
-  <h1>${resultado}</h1>
+  <h1 style="color: green;">${resultado.toUpperCase()}</h1>
   <img class="imgGif" src="../assets/calacaBailando.gif" alt="calacaBailando">
   `;
   } else if (resultado == "Perdiste") {
     loserSong.play();
     document.getElementById("divResultados").innerHTML = `
-  <h1>${resultado}</h1>
+  <h1 style="color: red;">${resultado.toUpperCase()}</h1>
   <img class="imgGif" src="../assets/marioSad.gif" alt="marioSad">
   `;
   } else if (resultado == "Empate") {
     empateSong.play();
-        document.getElementById("divResultados").innerHTML = `
-  <h1>${resultado}</h1>
+    document.getElementById("divResultados").innerHTML = `
+  <h1 style="color: yellow;">${resultado.toUpperCase()}</h1>
   <img class="imgGif" src="../assets/L.gif" alt="marioSad">
   `;
   }
+
+  botonIniciar.style.display = "none";
 }
 
 function eleccionUsuario() {
@@ -81,7 +90,7 @@ function quienEsElGanador(usuario, maquina) {
 
 function mostrarResultados(usuario, maquina, resultado) {
   document.getElementById("divResultados").innerHTML = `
-  <h1>${resultado}</h1>
+  <h1>${resultado.toLocaleUpperCase()}</h1>
   `;
 }
 
@@ -142,4 +151,3 @@ function cambiarURL(usuario, maquina) {
 function reiniciarJuego() {
   window.location.reload();
 }
-
