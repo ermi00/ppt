@@ -17,9 +17,9 @@
 <body>
   <main>
     <h1>Piedra, Papel, Tijeras!</h1>
-    <p>Seleciona una de las opciones para jugar</p>
+    <p id="pInformativo">Seleciona una de las opciones para jugar</p>
 
-    <div class="divBotones">
+    <div id="divBotones" class="divBotones">
       <button class="botonesJuego" onclick="botonPiedra()">
         <img class="imgIconos" src="assets/piedraIcono.png" alt="" />
       </button>
@@ -55,7 +55,7 @@
     <button id="botonReiniciar" type="reset" onclick="reiniciarJuego()">Reiniciar</button>
 
     <div id="divResultados"></div>
-  </main>
+  </main> 
 </body>
 <script src="javascript/index.js"></script>
 

@@ -2,6 +2,7 @@ let usuarioEleccion = null;
 let imgUsuarioEleccion = document.getElementById("imgUsuarioEleccion");
 let imgMaquinaEleccion = document.getElementById("imgMaquinaEleccion");
 let divElecciones = document.getElementById("divElecciones");
+let divBotones = document.getElementById("divBotones");
 let botonIniciar = document.getElementById("botonIniciar");
 let botonReiniciar = document.getElementById("botonReiniciar");
 let sonidoBotones = new Audio("assets/clickButton.mp3");
@@ -9,13 +10,18 @@ let winnerSong = new Audio("assets/winner.mp3");
 let loserSong = new Audio("assets/loser.mp3");
 let empateSong = new Audio("assets/empate.mp3");
 let errorSound = new Audio("assets/errorSound.mp3");
+let pInformativo = document.getElementById("pInformativo")
+
+
+
 divElecciones.style.display = "none";
 botonReiniciar.style.display = "none";
 
 function iniciarJuego() {
   if (!usuarioEleccion) {
     errorSound.play();
-    alert("¡Selecciona una opción primero!");
+    pInformativo.style.color = "red"
+    pInformativo.textContent = "Seleciona una opcion antes de iniciar".toUpperCase();
     return;
   }
   let usuario = eleccionUsuario();
@@ -24,8 +30,10 @@ function iniciarJuego() {
   mostrarResultados(usuario, maquina, resultado);
   mostrarResultadosConsola(usuario, maquina, resultado);
   cambiarURL(usuario, maquina);
+  divBotones.style.display = "none";
   botonReiniciar.style.display = "block";
-  divElecciones.style.display = "flex ";
+  divElecciones.style.display = "flex";
+  pInformativo.style.display = "none"
 
   if (resultado == "Ganaste") {
     winnerSong.play();
