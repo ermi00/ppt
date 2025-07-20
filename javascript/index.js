@@ -38,19 +38,19 @@ function iniciarJuego() {
   if (resultado == "Ganaste") {
     winnerSong.play();
     document.getElementById("divResultados").innerHTML = `
-  <h1 style="color: green;">${resultado.toUpperCase()}</h1>
+  <span style="color: green;">Ganaste!</span>
   <img class="imgGif" src="assets/calacaBailando.gif" alt="calacaBailando">
   `;
   } else if (resultado == "Perdiste") {
     loserSong.play();
     document.getElementById("divResultados").innerHTML = `
-  <h1 style="color: red;">${resultado.toUpperCase()}</h1>
+  <span style="color: red;">Perdiste, intenta de nuevo.</span>
   <img class="imgGif" src="assets/marioSad.gif" alt="marioSad">
   `;
   } else if (resultado == "Empate") {
     empateSong.play();
     document.getElementById("divResultados").innerHTML = `
-  <h1 style="color: yellow;">${resultado.toUpperCase()}</h1>
+  <span style="color: yellow;">Empate</span>
   <img class="imgGif" src="assets/L.gif" alt="marioSad">
   `;
   }
